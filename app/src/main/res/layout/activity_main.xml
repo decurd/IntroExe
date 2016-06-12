@@ -1,0 +1,42 @@
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header 영역입니다.-->
+    <com.sajuboja.www.coordinatorlayout.HeaderLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_behavior="com.sajuboja.www.coordinatorlayout.HeaderScrollBehavior">
+        <!--
+         scrolling techniques 의 coordinatorlayout 을 적용하는 behavior
+         컨텐츠 영역에 RecyclerView를 구현해야
+         해당 behavior 가 동작하게끔 구성되어 있는듯
+         CoordinatorLayoutSample 프로젝트를 참고하자
+
+        app:layout_behavior="com.sajuboja.www.coordinatorlayout.HeaderScrollBehavior"
+        -->
+        <include layout="@layout/app_bar" android:id="@+id/app_bar"/>
+
+        <android.support.design.widget.TabLayout
+            android:background="@color/bg_screen1"
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/custom_tab_layout_height"
+            app:tabMode="fixed"
+            app:tabGravity="fill"/>
+    </com.sajuboja.www.coordinatorlayout.HeaderLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragmentBaground"
+        app:layout_behavior="com.sajuboja.www.coordinatorlayout.ContentsLayoutBehavior"/>
+
+        <!--@string/appbar_scrolling_view_behavior -->
+</android.support.design.widget.CoordinatorLayout>
